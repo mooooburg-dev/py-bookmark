@@ -7,3 +7,9 @@ from django.db import models
 class Bookmark(models.Model):
     site_name = models.CharField(max_length=100)
     url = models.URLField('Site URL')
+
+    # __str__ 메서드는 항상 문자열을 반환해야 함.
+    # 어떤 연산을 수행해도 상관없지만 반환하는 값은 항상 문자열이 되도록.
+    def __str__(self):
+        # 객체를 출력할 때 나타날 값
+        return "이름 : " + self.site_name + ", 주소 : " + self.url
