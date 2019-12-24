@@ -6,7 +6,7 @@
 </head>
 <body>
     <div vlass="btn-group">
-        <a href="#" class="btn-info">Add Bookmark</a>
+        <a href="{% url 'add' %}" class="btn-info">Add Bookmark</a> <!-- url템플릿을 사용하여 [add]라는 이름을 가진 URL 패턴을 찾아서 URL 출력해라 -->
     </div>
     <p></p>
     <table class="table">
@@ -23,7 +23,7 @@
             {% for bookmark in object_list %}
             <tr>
                 <td>{{forloop.counter}}</td>
-                <td><a href="#">{{bookmark.site_nam}}</a></td>
+                <td><a href="#">{{bookmark.site_name}}</a></td>
                 <td><a href="{{bookmark.url}}" target="_blank">{{bookmark.url}}</a></td>
                 <td><a href="#" class="btn btn-success btn-sm">Modify</a></td>
                 <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
