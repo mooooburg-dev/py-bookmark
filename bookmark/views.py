@@ -1,5 +1,6 @@
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 
 from .models import Bookmark
 from django.urls import reverse_lazy
@@ -17,4 +18,8 @@ class BookmarkCreateView(CreateView):
 # ListView를 상속해 사용함
 # Bookmark 모델을 임포트 하고 클래스 안에 model = Bookmark라는 구문을 이용해 모델을 설정함.
 class BookmarkListView(ListView):
+    model = Bookmark
+
+# 확인 기능 화면
+class BookmarkDetailView(DetailView):
     model = Bookmark
