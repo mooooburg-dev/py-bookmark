@@ -1,5 +1,5 @@
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.detail import DetailView
 
 from .models import Bookmark
@@ -23,3 +23,9 @@ class BookmarkListView(ListView):
 # 확인 기능 화면
 class BookmarkDetailView(DetailView):
     model = Bookmark
+
+# 수정 기능 화면
+class BookmartUpdateView(UpdateView): # UpdateView 상속
+    model = Bookmark
+    fields = ['site_name', 'url']
+    template_name_suffix = '_update' # 템플릿 접미사를 _update로 함. bookmark_update.html이 템플릿이 된다는 뜻임

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # models.Model을 상속받는 Bookmark 클래스
 # 모델 안에는 두 개의 클래스 변수가 있음. 이것을 필드라고 부름.
@@ -13,3 +14,8 @@ class Bookmark(models.Model):
     def __str__(self):
         # 객체를 출력할 때 나타날 값
         return "이름 : " + self.site_name + ", 주소 : " + self.url
+
+    # get_abosolute_url은 장고에서 사용하는 메서드임.
+    # 보통은 객체의 상세 화면 주소를 반환하게 만듦. 이 때 사용하는 reverse 메서드는 URL 패턴의 이름과 추가 인자를 전달받아 URL을 생성하는 메서드.
+    def get_absolute_url(self):
+        return reverse('detail', args=[str(self.id)])
