@@ -7,8 +7,8 @@
 <body>
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Update" class="btn btn-info btn-sm">
+        <div class="alert alert-danger">Do you wnat to delete Bookmark "{{object}}"?</div>
+        <input type="submit" value="Delete" class="btn btn-danger">
     </form>
 </body>
 </html>

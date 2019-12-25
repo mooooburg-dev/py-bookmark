@@ -1,5 +1,5 @@
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
 from .models import Bookmark
@@ -25,7 +25,11 @@ class BookmarkDetailView(DetailView):
     model = Bookmark
 
 # 수정 기능 화면
-class BookmartUpdateView(UpdateView): # UpdateView 상속
+class BookmarkUpdateView(UpdateView): # UpdateView 상속
     model = Bookmark
     fields = ['site_name', 'url']
     template_name_suffix = '_update' # 템플릿 접미사를 _update로 함. bookmark_update.html이 템플릿이 된다는 뜻임
+
+class BookmarkDeleteView(DeleteView):
+    model = Bookmark
+    success_url = reverse_lazy('list') # 삭제 후 목록 페이지로 이동할 수 있도록  gka
