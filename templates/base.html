@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <!--
+    템플릿 확장은 [BLOCK]을 기준으로 동작한다. 기준 템플릿에는 다른 템플릿에서 껴넣을 공간을 block 태그를 사용해 만들어두고
+    하위 템플릿에서는 이 블록에 껴넣을 내용을 결정하여 내용을 채운다.
+
+    아래 코드에는 두개의 블록이 있다. [title]이라는 블록은 브라우저 탭에 보이는 이름을 결정하는 title 태그에 껴 넣을 수 있도록 하였고,
+    body 태그 안쪽에는 [content]라는 블록을 만들어서 하위 템플릿에서 출력하고자 하는 내용을 껴 넣을 수 있도록 만들었다.
+    -->
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
