@@ -19,6 +19,7 @@ class BookmarkCreateView(CreateView):
 # Bookmark 모델을 임포트 하고 클래스 안에 model = Bookmark라는 구문을 이용해 모델을 설정함.
 class BookmarkListView(ListView):
     model = Bookmark
+    paginate_by = 6 # 페이징 기능 추가 : 한 페이지에 몇 개씩 출력할 것인지 결정
 
 # 확인 기능 화면
 class BookmarkDetailView(DetailView):
